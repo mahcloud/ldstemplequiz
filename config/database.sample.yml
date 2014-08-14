@@ -1,0 +1,26 @@
+login: &login
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username:
+  password:
+
+connection: &connection
+  encoding: unicode
+  pool: 5
+
+
+development:
+  database: lds_temple_quiz_dev
+  <<: *login
+  <<: *connection
+
+test:
+  database: lds_temple_quiz_tests
+  <<: *login
+  <<: *connection
+
+production:
+  database: lds_temple_quiz
+  <<: *login
+  <<: *connection

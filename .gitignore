@@ -1,0 +1,15 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore simplecov test coverage output
+coverage
+
+# Ignore yml files
+config/*.yml
+!config/*.sample.yml
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+.DS_Store
