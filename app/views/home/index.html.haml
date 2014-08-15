@@ -1,1 +1,9 @@
-%div 'hello world'
+.row
+  .large-2.columns
+    %ul#tabs
+      -@countries.each do |country|
+        %li
+          %a{:id => 'g'+country.id.to_s, 'data-load' => country.id}=country.name
+    #controls-mixed
+  .large-10.columns
+    #gmap
