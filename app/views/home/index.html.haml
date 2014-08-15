@@ -1,9 +1,10 @@
 .row
   .large-2.columns
-    %ul#tabs
+    %dl.accordion{'data-accordion' => true}
       -@countries.each do |country|
-        %li
-          %a{:id => 'g'+country.id.to_s, 'data-load' => country.id}=country.name
-    #controls-mixed
+        %dd.accordion-navigation
+          %a{:href => '#g'+country.id.to_s, 'data-load' => country.id}=country.name
+          .content{:id => 'g'+country.id.to_s}
+
   .large-10.columns
     #gmap
