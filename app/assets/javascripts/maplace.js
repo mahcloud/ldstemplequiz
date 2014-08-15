@@ -1,4 +1,5 @@
 var maplace;
+var temple_id = 0;
 function showGroup(index) {
     $('.accordion .content').removeClass('active');
     $.getJSON('temples.json', { continent_id: index }, function(data) {

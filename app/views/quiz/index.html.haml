@@ -13,3 +13,10 @@
   .large-10.columns
     #temple_photos
     #gmap
+
+= javascript_include_tag 'quiz'
+:javascript
+  $(document).ready(function() {
+    temple_id = #{@temple.id};
+    setTimeout("openPhotos(#{@temple.id});", 50);
+  });
