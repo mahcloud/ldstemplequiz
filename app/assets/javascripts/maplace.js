@@ -19,7 +19,7 @@ function openPhotos(temple_id) {
 	    for (var i=0; i<=data['photos'].length - 1; i++) {
 		$('#temple_photos ul').append('<li><div><img src="'+data['photos'][i]['link']+'"/></div></li>');
 	    }
-	    $(document).foundation('orbit');
+	    setTimeout("$(document).foundation('orbit');", 50);
 	    if(data['photos'].length == 0) {
 		$('#temple_photos').html('');
 	    }
