@@ -13,6 +13,19 @@ function showGroup(index) {
     });
 }
 
+function openPhotos(temple_id) {
+	$.getJSON('photos.json', { temple_id: temple_id }, function(data) {
+	    $('#temple_photos').html('<ul data-orbit></ul>');
+	    for (var i=0; i<=data['photos'].length - 1; i++) {
+		$('#temple_photos ul').append('<li><div><img src="'+data['photos'][i]['link']+'"/></div></li>');
+	    }
+	    $(document).foundation('orbit');
+	    if(data['photos'].length == 0) {
+		$('#temple_photos').html('');
+	    }
+	});
+}
+
 $(function() {
 	maplace = new Maplace({
 	    map_div: '#gmap',
@@ -29,16 +42,7 @@ $(function() {
 
 	maplace.o.afterCreateMarker = function (index, location, marker) {
 	    google.maps.event.addListener(marker, 'click', function() {
-		$.getJSON('photos.json', { temple_id: this.id }, function(data) {
-		    $('#temple_photos').html('<ul data-orbit></ul>');
-		    for (var i=0; i<=data['photos'].length - 1; i++) {
-                        $('#temple_photos ul').append('<li><div><img src="'+data['photos'][i]['link']+'"/></div></li>');
-		    }
-		    $(document).foundation('orbit');
-		    if(data['photos'].length == 0) {
-			$('#temple_photos').html('');
-		    }
-		});
+		openPhotos(this.id);
 	    });
 	};
 });
