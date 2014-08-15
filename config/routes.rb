@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources 'temples'
   resources 'photos'
+  resources 'quiz'
 end
