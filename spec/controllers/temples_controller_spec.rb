@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 describe TemplesController, type: :controller do
-  let!(:country) { Fabricate(:country) }
+  let!(:continent) { Fabricate(:continent) }
 
   describe "GET index" do
-    it "it should assign country" do
+    it "it should assign continent" do
       get :index, :format => 'json'
-      assigns(:country).should == country
+      assigns(:continent).should == continent
     end
 
-    it "it should find country" do
-      find_country = Fabricate(:country)
-      get :index, :country_id => find_country.id, :format => 'json'
-      assigns(:country).should == find_country
+    it "it should find continent" do
+      find_continent = Fabricate(:continent)
+      get :index, :continent_id => find_continent.id, :format => 'json'
+      assigns(:continent).should == find_continent
     end
   end
 end

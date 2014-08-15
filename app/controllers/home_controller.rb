@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @countries = Country.all.order('name ASC')
+    @continents = Continent.all.order('name ASC')
   end
 end

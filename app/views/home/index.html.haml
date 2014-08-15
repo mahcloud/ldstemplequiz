@@ -1,10 +1,10 @@
 .row
   .large-2.columns
     %dl.accordion{'data-accordion' => true}
-      -@countries.each do |country|
+      -@continents.each do |continent|
         %dd.accordion-navigation
-          %a{:href => '#g'+country.id.to_s, 'data-load' => country.id}=country.name
-          .content{:id => 'g'+country.id.to_s}
+          %a{:href => '#g'+continent.id.to_s, 'data-load' => continent.id}=continent.name
+          .content{:id => 'g'+continent.id.to_s}
 
   .large-10.columns
     #gmap

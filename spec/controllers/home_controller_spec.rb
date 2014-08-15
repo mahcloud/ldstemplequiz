@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe HomeController, type: :controller do
-  let!(:country) { Fabricate(:country) }
+  let!(:continent) { Fabricate(:continent) }
 
   describe "GET index" do
     it "it should have countries" do
       get :index
-      assigns(:countries).should == [country]
+      assigns(:continents).should == [continent]
     end
   end
 end

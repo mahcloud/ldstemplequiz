@@ -1,7 +1,7 @@
 var maplace;
 function showGroup(index) {
     $('.accordion .content').removeClass('active');
-    $.getJSON('temples.json', { country_id: index }, function(data) {
+    $.getJSON('temples.json', { continent_id: index }, function(data) {
         maplace.Load({
             locations: data.locations,
             view_all: false,
