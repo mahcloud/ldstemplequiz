@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815045927) do
+ActiveRecord::Schema.define(version: 20140815052143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20140815045927) do
 
   add_index "countries", ["continent_id"], name: "index_countries_on_continent_id", using: :btree
   add_index "countries", ["name"], name: "index_countries_on_name", using: :btree
+
+  create_table "photos", force: true do |t|
+    t.string   "link"
+    t.integer  "temple_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["temple_id"], name: "index_photos_on_temple_id", using: :btree
 
   create_table "states", force: true do |t|
     t.string   "name"

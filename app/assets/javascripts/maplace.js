@@ -5,7 +5,7 @@ function showGroup(index) {
         maplace.Load({
             locations: data.locations,
             view_all: false,
-            type: data.type,
+            type: 'marker',
             force_generate_controls: true
         });
 	$('#g'+index).addClass('active');
@@ -25,4 +25,19 @@ $(function() {
 	    var index = $(this).attr('data-load');
 	    showGroup(index);
 	});
+
+	maplace.o.afterCreateMarker = function (index, location, marker) {
+	    google.maps.event.addListener(marker, 'click', function() {
+		$.getJSON('photos.json', { temple_id: this.id }, function(data) {
+		    $('#temple_photos').html('<ul data-orbit></ul>');
+		    for (var i=0; i<=data['photos'].length - 1; i++) {
+                        $('#temple_photos ul').append('<li><div><img src="'+data['photos'][i]['link']+'"/></div></li>');
+		    }
+		    $(document).foundation('orbit');
+		    if(data['photos'].length == 0) {
+			$('#temple_photos').html('');
+		    }
+		});
+	    });
+	};
 });

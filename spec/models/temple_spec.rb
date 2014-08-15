@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe Temple, :type => :model do
   it { should belong_to(:state) }
   it { should belong_to(:country) }
+  it { should have_many(:photos) }
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
   it { should validate_presence_of(:address) }

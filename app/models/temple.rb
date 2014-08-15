@@ -1,6 +1,7 @@
 class Temple < ActiveRecord::Base
   belongs_to :state
   belongs_to :country
+  has_many :photos
 
   validates :name, :presence => true, :uniqueness => true
   validates :address, :presence => true
