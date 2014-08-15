@@ -10,7 +10,7 @@ function showGroup(index) {
             force_generate_controls: true
         });
 	$('#g'+index).addClass('active');
-	$('#temple_photos').html('');
+	$('#home #temple_photos').html('');
     });
 }
 
