@@ -1,4 +1,4 @@
-json.locations @continent.temples do |temple|
+json.locations @temples do |temple|
   json.id temple.id
   json.lat temple.latitude
   json.lon temple.longitude

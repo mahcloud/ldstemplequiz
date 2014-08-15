@@ -1,6 +1,9 @@
 .row
   .large-2.columns
     %dl.accordion{'data-accordion' => true}
+      %dd.accordion-navigation
+        %a{:href => '#g0', 'data-load' => 0} All Temples
+        .content#g0
       -@continents.each do |continent|
         -if continent.has_temples?
           %dd.accordion-navigation

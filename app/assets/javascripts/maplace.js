@@ -40,6 +40,8 @@ $(function() {
 	    showGroup(index);
 	});
 
+	showGroup(0);
+
 	maplace.o.afterCreateMarker = function (index, location, marker) {
 	    google.maps.event.addListener(marker, 'click', function() {
 		openPhotos(this.id);
