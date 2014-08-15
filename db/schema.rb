@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814151959) do
+ActiveRecord::Schema.define(version: 20140815041723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "countries", force: true do |t|
+  create_table "continents", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "continents", ["name"], name: "index_continents_on_name", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "continent_id"
+  end
+
+  add_index "countries", ["continent_id"], name: "index_countries_on_continent_id", using: :btree
   add_index "countries", ["name"], name: "index_countries_on_name", using: :btree
 
   create_table "states", force: true do |t|

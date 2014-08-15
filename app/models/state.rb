@@ -3,4 +3,5 @@ class State < ActiveRecord::Base
   belongs_to :country
 
   validates :name, :presence => true, :uniqueness => true
+  validates :country_id, :presence => true
 end
