@@ -6,4 +6,23 @@ describe User do
   it { should_not allow_value('foobar@gmailcom').for(:email) }
   it { should_not allow_value('foobar@gmail.').for(:email) }
   it { should have_many(:answers) }
+
+  describe "correct_answers" do
+    let!(:user) { Fabricate(:user) }
+    before(:each) do
+      Fabricate(:answer, :user_id => user.id, :correct => true)
+      Fabricate(:answer, :user_id => user.id, :correct => true)
+      Fabricate(:answer, :user_id => user.id, :correct => true)
+      Fabricate(:answer, :user_id => user.id, :correct => false)
+      Fabricate(:answer, :user_id => user.id, :correct => false)
+    end
+
+    it "should be 3 answers" do
+      user.answers.correct_answers.count.should == 3
+    end
+
+    it "should be 2 answers" do
+      user.answers.wrong_answers.count.should == 2
+    end
+  end
 end
