@@ -5,4 +5,5 @@ describe User do
   it { should_not allow_value('foobargmail.com').for(:email) }
   it { should_not allow_value('foobar@gmailcom').for(:email) }
   it { should_not allow_value('foobar@gmail.').for(:email) }
+  it { should have_many(:answers) }
 end

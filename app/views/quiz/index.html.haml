@@ -1,4 +1,8 @@
 .row
+  .large-2.columns= ''
+  .large-10.columns
+    #temple_answer
+.row
   .large-2.columns
     %dl.accordion{'data-accordion' => true}
       %dd.accordion-navigation
@@ -17,6 +21,5 @@
 = javascript_include_tag 'quiz'
 :javascript
   $(document).ready(function() {
-    temple_id = #{@temple.id};
     setTimeout("openPhotos(#{@temple.id});", 50);
   });
