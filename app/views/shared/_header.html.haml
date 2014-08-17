@@ -10,6 +10,12 @@
       -if user_signed_in?
         =link_to(destroy_user_session_path, :method => 'delete') do
           %button#logout_button Logout
+        #stats
+          =current_user.answers.correct_answers.count
+          Correct
+          %br
+          =current_user.answers.count
+          Guesses
       -else 
         =link_to(new_user_session_path) do
           %button#login_button Login
