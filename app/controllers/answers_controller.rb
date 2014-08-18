@@ -16,5 +16,7 @@ class AnswersController < ApplicationController
       end
       session.delete(:quiz_temple_id)
     end
+    @correct_answers = (current_user.nil?)? 0 : current_user.answers.correct_answers.count
+    @total_answers = (current_user.nil?)? 0 : current_user.answers.count
   end
 end

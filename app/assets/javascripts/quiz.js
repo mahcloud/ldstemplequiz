@@ -9,6 +9,7 @@ $(document).ready(function() {
                   $('#temple_answer').html(data['temple_name'] + ' Temple');
                 }
 		$('#temple_answer, .next_quiz').show();
+		$('#stats').html(data['correct_answers'] + ' Correct<br/>'+data['total_answers']+ ' Guesses');
                 if(data['correct'] === true){
                   alert('Correct');
                 } else if(data['temple_name'] == 'Already guessed') {
