@@ -8,7 +8,7 @@ $(document).ready(function() {
                 } else {
                   $('#temple_answer').html(data['temple_name'] + ' Temple');
                 }
-		$('#temple_answer').show();
+		$('#temple_answer, .next_quiz').show();
                 if(data['correct'] === true){
                   alert('Correct');
                 } else if(data['temple_name'] == 'Already guessed') {

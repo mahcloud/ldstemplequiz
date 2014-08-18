@@ -4,6 +4,9 @@
     #temple_answer
 .row
   .large-2.columns
+    .next_quiz
+      =link_to(quiz_index_path) do
+        %button#next_quiz_button Next Temple
     %dl.accordion{'data-accordion' => true}
       %dd.accordion-navigation
         %a{:href => '#g0', 'data-load' => 0} All Temples
@@ -17,6 +20,9 @@
   .large-10.columns
     #temple_photos
     #gmap
+    .next_quiz
+      =link_to(quiz_index_path) do
+        %button#next_quiz_button Next Temple
 
 = javascript_include_tag 'quiz'
 :javascript
