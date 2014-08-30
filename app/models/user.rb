@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :answers
   validates :email, :presence => true, :unless => :is_guest?
+  validates :type, :presence => true
 
   def is_guest?
     self.is_a? Guest
