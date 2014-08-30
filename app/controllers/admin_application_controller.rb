@@ -15,14 +15,8 @@ class AdminApplicationController < ::ApplicationController
   protected
 
   def require_admin
-    redirect_to new_admin_session_path unless current_admin.is_a? Admin
+    redirect_to new_user_session_path unless current_user.is_a? Admin
   end
 
   helper_method :require_admin
-
-  def current_user
-    current_admin
-  end
-
-  helper_method :current_user
 end

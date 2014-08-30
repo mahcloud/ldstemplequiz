@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :answers
-  validates :email, :presence => true, :unless => :is_guest?
+  validates :email, :presence => true, :uniqueness => true, :unless => :is_guest?
   validates :type, :presence => true
 
   def is_guest?
