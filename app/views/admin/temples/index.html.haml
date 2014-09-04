@@ -1,0 +1,16 @@
+%h1 Temples
+
+= link_to 'Add Temple', new_admin_temple_path
+
+%table
+  %tr
+    %th Name
+    %th Continent
+    %th Country
+    %th State
+  -@temples.each do |temple|
+    %tr
+      %td= link_to temple.name, admin_temple_path(temple)
+      %td= temple.country.continent.name
+      %td= temple.country.name
+      %td= temple.state.name

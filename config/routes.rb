@@ -7,4 +7,12 @@ Rails.application.routes.draw do
   resources 'photos'
   resources 'quiz'
   resources 'answers'
+
+  get 'admin' => 'admin/temples#index', :as => 'admin_home'
+  namespace :admin do
+    resources :continents
+    resources :countries
+    resources :states
+    resources :temples
+  end
 end

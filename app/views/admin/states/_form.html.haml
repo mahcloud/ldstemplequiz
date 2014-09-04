@@ -1,0 +1,9 @@
+= form_for [:admin, @state] do |f|
+  = render '/shared/form_error_messages', :object => @state, :name => 'state'
+
+  .field
+    = f.label :name
+    = f.text_field :name
+    = f.hidden_field :country_id
+  .actions
+    = submit_tag 'Add State'

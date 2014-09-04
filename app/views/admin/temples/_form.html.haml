@@ -1,0 +1,60 @@
+= form_for [:admin, @temple] do |f|
+  = render '/shared/form_error_messages', :object => @temple, :name => 'temple'
+
+  -if @continent.nil?
+    .field
+      = f.label :continent
+      = select_tag :continent_id, options_for_select(@continents)
+    .actions
+      = submit_tag 'Choose Continent'
+  -else
+    -if @country.nil?
+      .field
+        = @continent.name
+        = hidden_field_tag :continent_id, @continent.id
+      .field
+        = f.label :country
+        = select_tag :country_id, options_for_select(@countries)
+      .actions
+        = submit_tag 'Choose Country'
+    -else
+      -if @state.nil?
+        .field
+          = @continent.name
+          = hidden_field_tag :continent_id, @continent.id
+        .field
+          = @country.name
+          = hidden_field_tag :country_id, @country.id
+        .field
+          = f.label :state
+          = link_to 'Add', new_admin_state_path({:country_id => @country.id})
+          = select_tag :state_id, options_for_select(@states)
+        .actions
+          = submit_tag 'Choose State'
+      -else
+        .field
+          = @continent.name
+          = hidden_field_tag :continent_id, @continent.id
+        .field
+          = @country.name
+          = hidden_field_tag :country_id, @country.id
+        .field
+          = @state.name
+          = hidden_field_tag :state_id, @state.id
+        .field
+          = f.label :name
+          = f.text_field :name
+        .field
+          = f.label :address
+          = f.text_field :address
+        .field
+          = f.label :link
+          = f.text_field :link
+        .field
+          = f.label :latitude
+          = f.text_field :latitude
+        .field
+          = f.label :longitude
+          = f.text_field :longitude
+        .actions
+          = submit_tag 'Add Temple'
