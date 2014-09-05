@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817202147) do
+ActiveRecord::Schema.define(version: 20140905023132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,26 @@ ActiveRecord::Schema.define(version: 20140817202147) do
 
   add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
   add_index "states", ["name"], name: "index_states_on_name", using: :btree
+
+  create_table "team_members", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.boolean  "leader",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "team_members", ["leader"], name: "index_team_members_on_leader", using: :btree
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+  add_index "team_members", ["user_id"], name: "index_team_members_on_user_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["name"], name: "index_teams_on_name", using: :btree
 
   create_table "temples", force: true do |t|
     t.string   "name"
