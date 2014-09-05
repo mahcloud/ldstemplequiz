@@ -1,0 +1,8 @@
+= form_for [:admin, @temple, @photo] do |f|
+  = render '/shared/form_error_messages', :object => @photo, :name => 'photo'
+
+  .field
+    = f.label :link
+    = f.text_field :link
+  .actions
+    = submit_tag 'Add Photo'

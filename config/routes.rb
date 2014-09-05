@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :continents
     resources :countries
     resources :states
-    resources :temples
+    resources :temples do
+      resources :photos
+    end
   end
 end

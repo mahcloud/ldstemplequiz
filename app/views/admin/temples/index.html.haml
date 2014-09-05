@@ -8,9 +8,13 @@
     %th Continent
     %th Country
     %th State
+    %th Images
   -@temples.each do |temple|
     %tr
       %td= link_to temple.name, admin_temple_path(temple)
       %td= temple.country.continent.name
       %td= temple.country.name
       %td= temple.state.name
+      %td
+        = temple.photos.count
+        = link_to 'Add', new_admin_temple_photo_path(temple)
