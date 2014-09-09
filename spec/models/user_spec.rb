@@ -8,6 +8,8 @@ describe User do
   it { should_not allow_value('foobar@gmail.').for(:email) }
   it { should validate_presence_of(:type) }
   it { should have_many(:answers) }
+  it { should have_many(:team_members) }
+  it { should have_many(:teams) }
 
   describe "correct_answers" do
     let!(:user) { Fabricate(:user) }

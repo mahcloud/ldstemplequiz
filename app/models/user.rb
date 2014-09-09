@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :answers
+  has_many :team_members
+  has_many :teams, through: :team_members 
   validates :email, :presence => true, :uniqueness => true, :unless => :is_guest?
   validates :type, :presence => true
 
