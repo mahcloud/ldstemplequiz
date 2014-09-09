@@ -4,4 +4,10 @@ class Team < ActiveRecord::Base
   belongs_to :leader, :class_name => User
 
   validates :name, :presence => true, :uniqueness => true
+
+  def leader_name
+    name = "No Leader"
+    name = leader.email unless leader.nil?
+    name
+  end
 end
